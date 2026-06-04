@@ -2,188 +2,480 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="کسب‌ و کارتان را آنلاین کنید — طراحی اختصاصی برای فروشگاه‌ها، شرکت‌ها، کلینیک‌ها — محمد زارع‌پور">
-  <title>طراحی سایت حرفه‌ای | محمد زارع‌پور</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کاج | صنایع چوبی و مبلمان</title>
+  <meta name="description" content="تولیدکننده مبلمان چوبی دست‌ساز، میز و صندلی، کمد و دکوراسیون داخلی با چوب طبیعی">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="bg-glow" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="container header-inner">
+  <!-- نوار بالا -->
+  <header class="header" id="header">
+    <div class="container header__inner">
       <a href="#" class="logo">
-        <span class="logo-mark">M</span>
-        <span>طراحی سایت mzpr</span>
+        <svg class="logo__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 4L8 14v22h24V14L20 4z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M14 22h12M14 28h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="20" cy="10" r="3" fill="currentColor"/>
+        </svg>
+        <span class="logo__text">کاج</span>
       </a>
-      <nav class="nav" aria-label="منوی اصلی">
-        <a href="#features">مزایا</a>
-        <a href="#trades">مشاغل</a>
-        <a href="#process">فرآیند</a>
-        <a href="#contact">تماس</a>
+
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav__link active">خانه</a>
+        <a href="#products" class="nav__link">محصولات</a>
+        <a href="#craft" class="nav__link">هنر ساخت</a>
+        <a href="#gallery" class="nav__link">گالری</a>
+        <a href="#about" class="nav__link">درباره ما</a>
+        <a href="#contact" class="nav__link">تماس</a>
       </nav>
-      <a class="btn btn-primary" href="tel:09222507759">تماس فوری</a>
+
+      <button class="header__cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        درخواست مشاوره
+      </button>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="منو">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="badge">طراحی · ساخت · بهینه‌سازی</span>
-          <h1>کسب‌ و کارتان را آنلاین کنید</h1>
-          <p class="hero-lead">
-            طراحی اختصاصی برای فروشگاه‌ها، شرکت‌ها، کلینیک‌ها و هر آنچه که شما بخواهید.
-            ما آماده‌ایم که بستری مدرن برای رشد کسب‌ و کار شما آماده کنیم.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="tel:09222507759">مشاوره رایگان</a>
-            <a class="btn btn-outline" href="#features">ببینید چه می‌سازیم</a>
-          </div>
-          <div class="stats">
-            <div class="stat">
-              <strong>سبک</strong>
-              <span>بارگذاری سریع روی موبایل</span>
-            </div>
-            <div class="stat">
-              <strong>مدرن</strong>
-              <span>طراحی روز و حرفه‌ای</span>
-            </div>
-            <div class="stat">
-              <strong>هدفمند</strong>
-              <span>متناسب با شغل شما</span>
-            </div>
-          </div>
-        </div>
-        <aside class="hero-card">
-          <h2>چرا سایت حرفه‌ای؟</h2>
-          <ul class="check-list">
-            <li>معرفی ۲۴ ساعته کسب‌وکار در اینترنت</li>
-            <li>اعتماد بیشتر مشتری با ظاهر مدرن</li>
-            <li>نمایش خدمات، نمونه‌کار و تماس آسان</li>
-            <li>سازگار با موبایل و موتورهای جستجو</li>
-            <li>قابل توسعه برای فروش آنلاین و رزرو</li>
-          </ul>
-        </aside>
+  <!-- هیرو -->
+  <section class="hero" id="home">
+    <div class="hero__bg">
+      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1920&q=80" alt="مبلمان چوبی مدرن در فضای نشیمن" loading="eager">
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="container hero__content">
+      <div class="hero__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        بیش از ۲۵ سال تجربه در صنایع چوب
       </div>
-    </section>
-
-    <section class="section" id="features">
-      <div class="container">
-        <div class="section-title">
-          <h2>چه چیزی تحویل می‌گیرید؟</h2>
-          <p>ترکیب زیبایی، سرعت و سادگی — دقیقاً همان چیزی که امروز کار می‌کند.</p>
+      <h1 class="hero__title">
+        مبلمان چوبی<br>
+        <em>با روح و ماندگاری</em>
+      </h1>
+      <p class="hero__desc">
+        از انتخاب چوب طبیعی تا لمس نهایی، هر قطعه با دقت و عشق ساخته می‌شود.
+        مبل، میز، کمد و دکوراسیون سفارشی برای خانه‌ای گرم و اصیل.
+      </p>
+      <div class="hero__actions">
+        <a href="#products" class="btn btn--primary">مشاهده محصولات</a>
+        <a href="#craft" class="btn btn--outline">فرآیند ساخت</a>
+      </div>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__num">۲۵+</span>
+          <span class="stat__label">سال فعالیت</span>
         </div>
-        <div class="features">
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">⚡</div>
-            <h3>سریع‌ترین‌ها</h3>
-            <p>کد تمیز و بهینه برای باز شدن سریع صفحات، مخصوصاً روی گوشی.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">✨</div>
-            <h3>زیباترین‌ها</h3>
-            <p>رنگ‌بندی، تایپوگرافی و چیدمان حرفه‌ای متناسب با برند شما.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">🪶</div>
-            <h3>سبک‌ترین‌ها</h3>
-            <p>بدون شلوغی — تجربه‌ای روان که کاربر را خسته نمی‌کند.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">📱</div>
-            <h3>مدرن‌ترین‌ها</h3>
-            <p>طراحی واکنش‌گرا با استانداردهای روز وب و موبایل.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">🎯</div>
-            <h3>هدفمند برای شغل شما</h3>
-            <p>صفحه اصلی، خدمات، گالری، تماس — هر آنچه شغل‌تان نیاز دارد.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">🛡️</div>
-            <h3>قابل اعتماد</h3>
-            <p>ساختار منظم، نگهداری آسان و آماده رشد کسب‌وکار.</p>
-          </article>
+        <div class="stat">
+          <span class="stat__num">۳۵۰۰+</span>
+          <span class="stat__label">پروژه تحویل‌شده</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">۱۰۰٪</span>
+          <span class="stat__label">چوب طبیعی</span>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="hero__scroll">
+      <span>کشف کنید</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
 
-    <section class="section" id="trades">
-      <div class="container">
-        <div class="section-title">
-          <h2>برای همه مشاغل و خدمات</h2>
-          <p>کسب و کار شما شایسته‌ی یک ویترین حرفه‌ای‌ست.</p>
-        </div>
-        <div class="trades">
-          <span class="trade">فروشگاه</span>
-          <span class="trade">رستوران و کافه</span>
-          <span class="trade">پزشکی و کلینیک</span>
-          <span class="trade">آموزشگاه</span>
-          <span class="trade">املاک</span>
-          <span class="trade">خدمات فنی</span>
-          <span class="trade">زیبایی و آرایش</span>
-          <span class="trade">مشاوره</span>
-          <span class="trade">شرکت و استارتاپ</span>
-          <span class="trade">موسسه فرهنگی</span>
-          <span class="trade">تولیدی و صنعتی</span>
-          <span class="trade">شخصی و رزومه</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="process">
-      <div class="container">
-        <div class="section-title">
-          <h2>فرآیند ساده همکاری</h2>
-          <p>از ایده تا سایت آماده — شفاف و مرحله‌به‌مرحله.</p>
-        </div>
-        <div class="process">
-          <article class="step">
-            <h3>گفت‌وگو و نیازسنجی</h3>
-            <p>شغل، هدف و سلیقه شما را می‌شنوم تا طرح درست شکل بگیرد.</p>
-          </article>
-          <article class="step">
-            <h3>طراحی و پیش‌نمایش</h3>
-            <p>صفحه اول و ساختار سایت قبل از اجرای نهایی هماهنگ می‌شود.</p>
-          </article>
-          <article class="step">
-            <h3>ساخت و بهینه‌سازی</h3>
-            <p>پیاده‌سازی سبک، سریع و سازگار با موبایل.</p>
-          </article>
-          <article class="step">
-            <h3>تحویل و پشتیبانی</h3>
-            <p>راه‌اندازی روی هاست و آماده‌سازی برای توسعه بعدی.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="cta">
-          <h2>همین حالا تماس بگیرید</h2>
-          <p>مشاوره تخصصی، استعلام قیمت و زمان‌بندی پروژه</p>
-          <p>همه روزه پاسخگوی سؤالات شما هستم</p>
-          <p><strong>محمد زارع‌پور</strong></p>
-          <a class="phone-link" href="tel:09222507759">09222507759</a>
-          <div style="margin-top: 1.25rem;">
-            <a class="btn btn-primary" href="tel:09222507759">تماس تلفنی</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
+  <!-- دسته‌بندی محصولات -->
+  <section class="categories" id="products">
     <div class="container">
-      <p>© <span id="year"></span> <strong>محمد زارع‌پور</strong> — طراحی و ساخت وب‌سایت · <a href="https://mzpr.ir">mzpr.ir</a></p>
+      <div class="section-header">
+        <span class="section-tag">محصولات ما</span>
+        <h2 class="section-title">دسته‌بندی مبلمان</h2>
+        <p class="section-desc">هر فضای خانه را با مجموعه‌ای از مبلمان چوبی دست‌ساز تکمیل کنید</p>
+      </div>
+      <div class="categories__grid">
+        <article class="category-card category-card--large">
+          <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80" alt="مبل راحتی چوبی" loading="lazy">
+          <div class="category-card__content">
+            <h3>مبل راحتی</h3>
+            <p>راحتی بی‌نظیر با طراحی کلاسیک و مدرن</p>
+            <a href="#" class="category-card__link">مشاهده ←</a>
+          </div>
+        </article>
+        <article class="category-card">
+          <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80" alt="میز ناهارخوری چوبی" loading="lazy">
+          <div class="category-card__content">
+            <h3>میز و صندلی</h3>
+            <p>ناهارخوری، جلو مبلی و میز کار</p>
+            <a href="#" class="category-card__link">مشاهده ←</a>
+          </div>
+        </article>
+        <article class="category-card">
+          <img src="https://images.unsplash.com/photo-1595428774223-ef5262410880?w=600&q=80" alt="کمد و قفسه چوبی" loading="lazy">
+          <div class="category-card__content">
+            <h3>کمد و قفسه</h3>
+            <p>ذخیره‌سازی هوشمند و زیبا</p>
+            <a href="#" class="category-card__link">مشاهده ←</a>
+          </div>
+        </article>
+        <article class="category-card">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=80" alt="تخت خواب چوبی" loading="lazy">
+          <div class="category-card__content">
+            <h3>اتاق خواب</h3>
+            <p>تخت، پاتختی و میز آرایش</p>
+            <a href="#" class="category-card__link">مشاهده ←</a>
+          </div>
+        </article>
+        <article class="category-card">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="دکوراسیون چوبی" loading="lazy">
+          <div class="category-card__content">
+            <h3>دکوراسیون</h3>
+            <p>آینه، شلف و المان تزئینی</p>
+            <a href="#" class="category-card__link">مشاهده ←</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- محصولات ویژه -->
+  <section class="featured">
+    <div class="container">
+      <div class="section-header section-header--row">
+        <div>
+          <span class="section-tag">پیشنهاد ویژه</span>
+          <h2 class="section-title">محصولات منتخب</h2>
+        </div>
+        <a href="#" class="btn btn--outline btn--sm">همه محصولات</a>
+      </div>
+      <div class="products__grid">
+        <article class="product-card">
+          <div class="product-card__img">
+            <img src="https://images.unsplash.com/photo-1567538096631-ebf3050ebd09?w=600&q=80" alt="مبل سه نفره چوب بلوط" loading="lazy">
+            <span class="product-card__badge">جدید</span>
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__cat">مبل راحتی</span>
+            <h3 class="product-card__name">مبل سه‌نفره بلوط</h3>
+            <p class="product-card__desc">چوب بلوط طبیعی، پارچه کتان، پایه چوبی محکم</p>
+            <div class="product-card__footer">
+              <span class="product-card__price">از ۴۸,۰۰۰,۰۰۰ تومان</span>
+              <button class="product-card__btn" aria-label="افزودن به علاقه‌مندی‌ها">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card__img">
+            <img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=600&q=80" alt="میز ناهارخوری ۶ نفره" loading="lazy">
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__cat">میز و صندلی</span>
+            <h3 class="product-card__name">میز ناهارخوری ۶ نفره</h3>
+            <p class="product-card__desc">چوب گردو، طراحی مینیمال، صندلی راحتی</p>
+            <div class="product-card__footer">
+              <span class="product-card__price">از ۳۲,۰۰۰,۰۰۰ تومان</span>
+              <button class="product-card__btn" aria-label="افزودن به علاقه‌مندی‌ها">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card__img">
+            <img src="https://images.unsplash.com/photo-1594620302200-9a762244a156?w=600&q=80" alt="کمد دیواری سفارشی" loading="lazy">
+            <span class="product-card__badge product-card__badge--sale">پرفروش</span>
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__cat">کمد و قفسه</span>
+            <h3 class="product-card__name">کمد دیواری سفارشی</h3>
+            <p class="product-card__desc">طراحی اختصاصی، یراق‌آلات درجه یک</p>
+            <div class="product-card__footer">
+              <span class="product-card__price">قیمت بر اساس متراژ</span>
+              <button class="product-card__btn" aria-label="افزودن به علاقه‌مندی‌ها">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card__img">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&q=80" alt="تخت خواب چوب راش" loading="lazy">
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__cat">اتاق خواب</span>
+            <h3 class="product-card__name">تخت خواب چوب راش</h3>
+            <p class="product-card__desc">طراحی مینیمال، پایه محکم، بدون ونه</p>
+            <div class="product-card__footer">
+              <span class="product-card__price">از ۲۸,۰۰۰,۰۰۰ تومان</span>
+              <button class="product-card__btn" aria-label="افزودن به علاقه‌مندی‌ها">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- هنر ساخت -->
+  <section class="craft" id="craft">
+    <div class="container craft__inner">
+      <div class="craft__visual">
+        <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff776?w=800&q=80" alt="نجار در حال ساخت مبلمان چوبی" loading="lazy">
+        <div class="craft__visual-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <div>
+            <strong>دست‌ساز</strong>
+            <span>۱۰۰٪ صنعتگر</span>
+          </div>
+        </div>
+      </div>
+      <div class="craft__content">
+        <span class="section-tag">هنر ساخت</span>
+        <h2 class="section-title">از درخت تا خانه شما</h2>
+        <p class="craft__text">
+          در کارگاه کاج، هر قطعه مبلمان سفری طولانی را طی می‌کند. چوب با دقت انتخاب،
+          خشک و آماده‌سازی می‌شود، سپس توسط استادکاران مجرب به شکل نهایی درمی‌آید.
+        </p>
+        <div class="craft__steps">
+          <div class="craft-step">
+            <span class="craft-step__num">۰۱</span>
+            <div>
+              <h4>انتخاب چوب</h4>
+              <p>بلوط، گردو، راش و روس — فقط چوب درجه یک</p>
+            </div>
+          </div>
+          <div class="craft-step">
+            <span class="craft-step__num">۰۲</span>
+            <div>
+              <h4>طراحی و برش</h4>
+              <p>طراحی سه‌بعدی و برش دقیق با دستگاه CNC</p>
+            </div>
+          </div>
+          <div class="craft-step">
+            <span class="craft-step__num">۰۳</span>
+            <div>
+              <h4>مونتاژ دستی</h4>
+              <p>اتصالات محکم، سنباده‌کاری و رنگ‌آمیزی</p>
+            </div>
+          </div>
+          <div class="craft-step">
+            <span class="craft-step__num">۰۴</span>
+            <div>
+              <h4>کنترل کیفیت</h4>
+              <p>بازرسی نهایی و بسته‌بندی ایمن</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ویژگی‌ها -->
+  <section class="features">
+    <div class="container">
+      <div class="features__grid">
+        <div class="feature">
+          <div class="feature__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>گارانتی ۵ ساله</h3>
+          <p>ضمانت کیفیت ساخت و مواد اولیه</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>طراحی سفارشی</h3>
+          <p>مبلمان متناسب با فضا و سلیقه شما</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3>ارسال سراسری</h3>
+          <p>بسته‌بندی حرفه‌ای و تحویل درب منزل</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>مشاوره رایگان</h3>
+          <p>تیم طراحی برای انتخاب بهترین گزینه</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- گالری -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">گالری</span>
+        <h2 class="section-title">نمونه کارها</h2>
+        <p class="section-desc">نگاهی به پروژه‌های اخیر مشتریان ما</p>
+      </div>
+      <div class="gallery__grid">
+        <figure class="gallery__item gallery__item--wide">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" alt="فضای نشیمن با مبلمان چوبی" loading="lazy">
+          <figcaption>فضای نشیمن — تهران</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1618221195350-4782e21e8b7a?w=600&q=80" alt="اتاق نشیمن مدرن" loading="lazy">
+          <figcaption>اتاق نشیمن مدرن</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?w=600&q=80" alt="میز جلو مبلی" loading="lazy">
+          <figcaption>میز جلو مبلی</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1617098907768-60d8f50e4b1e?w=600&q=80" alt="اتاق خواب چوبی" loading="lazy">
+          <figcaption>اتاق خواب</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--tall">
+          <img src="https://images.unsplash.com/photo-1631889993959-41b4e6c2d429?w=600&q=80" alt="کتابخانه چوبی" loading="lazy">
+          <figcaption>کتابخانه دیواری</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- درباره ما -->
+  <section class="about" id="about">
+    <div class="container about__inner">
+      <div class="about__content">
+        <span class="section-tag">درباره کاج</span>
+        <h2 class="section-title">ریشه در طبیعت،<br>شاخه در هنر</h2>
+        <p>
+          کارگاه صنایع چوبی کاج از سال ۱۳۷۸ فعالیت خود را آغاز کرد. ما باور داریم
+          مبلمان فقط وسیله نیست — بخشی از خاطرات خانواده است. به همین دلیل هر قطعه
+          با استانداردهای سخت‌گیرانه ساخته و تحویل می‌شود.
+        </p>
+        <p>
+          تیم ما شامل ۴۵ نجار، طراح و متخصص رنگ‌آمیزی است که روزانه روی پروژه‌های
+          سفارشی و سری تولید کار می‌کنند.
+        </p>
+        <div class="about__materials">
+          <span class="material-tag">بلوط</span>
+          <span class="material-tag">گردو</span>
+          <span class="material-tag">راش</span>
+          <span class="material-tag">چوب روس</span>
+          <span class="material-tag">MDF روکش‌دار</span>
+        </div>
+      </div>
+      <div class="about__images">
+        <img src="https://images.unsplash.com/photo-1503604478595-0a9323d73714?w=500&q=80" alt="بافت چوب طبیعی" class="about__img about__img--1" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=80" alt="فضای داخلی با مبلمان کاج" class="about__img about__img--2" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- تماس -->
+  <section class="contact" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__info">
+        <span class="section-tag">تماس با ما</span>
+        <h2 class="section-title">پروژه بعدی‌تان را<br>با ما شروع کنید</h2>
+        <p>برای مشاوره رایگان، بازدید از کارگاه یا سفارش سفارشی با ما در تماس باشید.</p>
+        <ul class="contact__list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>۰۲۱-۸۸۷۷۶۶۵۵</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>info@kaj-wood.ir</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>شهرک صنعتی، فاز ۲، بلوار چوب</span>
+          </li>
+        </ul>
+      </div>
+      <form class="contact__form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">نام و نام خانوادگی</label>
+            <input type="text" id="name" name="name" placeholder="مثلاً علی محمدی" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">شماره تماس</label>
+            <input type="tel" id="phone" name="phone" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">موضوع</label>
+          <select id="subject" name="subject">
+            <option value="">انتخاب کنید</option>
+            <option value="sofa">سفارش مبل</option>
+            <option value="custom">طراحی سفارشی</option>
+            <option value="visit">بازدید از کارگاه</option>
+            <option value="other">سایر</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">پیام شما</label>
+          <textarea id="message" name="message" rows="4" placeholder="توضیحات پروژه یا سوال خود را بنویسید..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">ارسال درخواست</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- فوتر -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="logo logo--light">
+          <svg class="logo__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M20 4L8 14v22h24V14L20 4z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M14 22h12M14 28h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="20" cy="10" r="3" fill="currentColor"/>
+          </svg>
+          <span class="logo__text">کاج</span>
+        </a>
+        <p>صنایع چوبی و مبلمان دست‌ساز<br>با کیفیت و اصالت</p>
+      </div>
+      <div class="footer__links">
+        <h4>دسترسی سریع</h4>
+        <a href="#products">محصولات</a>
+        <a href="#craft">هنر ساخت</a>
+        <a href="#gallery">گالری</a>
+        <a href="#about">درباره ما</a>
+      </div>
+      <div class="footer__links">
+        <h4>محصولات</h4>
+        <a href="#">مبل راحتی</a>
+        <a href="#">میز و صندلی</a>
+        <a href="#">کمد و قفسه</a>
+        <a href="#">اتاق خواب</a>
+      </div>
+      <div class="footer__social">
+        <h4>شبکه‌های اجتماعی</h4>
+        <div class="social-links">
+          <a href="#" aria-label="اینستاگرام">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="تلگرام">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </a>
+          <a href="#" aria-label="واتساپ">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© ۱۴۰۵ کاج — تمامی حقوق محفوظ است.</p>
+      </div>
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
