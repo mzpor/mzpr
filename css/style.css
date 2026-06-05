@@ -31,7 +31,7 @@
   --radius-md: 12px;
   --radius-lg: 20px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --header-height: 96px;
+  --header-height: 80px;
 }
 
 /* ===== Reset ===== */
@@ -1156,12 +1156,12 @@ ul { list-style: none; }
   }
 
   .header__actions {
-    gap: 8px;
+    gap: 4px;
   }
 
-  .header__social-link {
-    width: 30px;
-    height: 30px;
+  .header__social-link img {
+    width: 34px;
+    height: 34px;
   }
 
   .menu-toggle {
