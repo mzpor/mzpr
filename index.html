@@ -30,9 +30,19 @@
         <a href="#contact" class="nav__link">تماس</a>
       </nav>
 
-      <button class="header__cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        درخواست مشاوره
-      </button>
+      <div class="header__actions">
+        <div class="header__social">
+          <a href="https://ble.ir/join/sanayechoobitehran" class="header__social-link" target="_blank" rel="noopener noreferrer" aria-label="کانال بله صنایع چوبی تهران" title="کانال بله">
+            <img src="images/social/bale.svg" alt="" width="20" height="20">
+          </a>
+          <a href="https://rubika.ir/joinc/sanayechoobitehran" class="header__social-link" target="_blank" rel="noopener noreferrer" aria-label="کانال روبیکا صنایع چوبی تهران" title="کانال روبیکا">
+            <img src="images/social/rubika.svg" alt="" width="20" height="20">
+          </a>
+        </div>
+        <button class="header__cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          درخواست مشاوره
+        </button>
+      </div>
 
       <button class="menu-toggle" id="menuToggle" aria-label="منو">
         <span></span><span></span><span></span>
