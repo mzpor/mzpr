@@ -321,6 +321,7 @@ ul { list-style: none; }
   height: 40px;
   object-fit: contain;
   display: block;
+  border-radius: 8px;
 }
 
 .header__social-link:hover {
