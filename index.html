@@ -28,18 +28,24 @@
         <a href="#gallery" class="nav__link">گالری</a>
         <a href="#about" class="nav__link">درباره ما</a>
         <a href="#contact" class="nav__link">تماس</a>
+        <a href="login.htm" class="nav__link nav__link--login">ورود</a>
       </nav>
 
       <div class="header__actions">
-        <button class="header__cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          درخواست مشاوره
-        </button>
+        <div class="header__buttons">
+          <a href="login.htm" class="header__login">ورود</a>
+          <button class="header__cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            درخواست مشاوره
+          </button>
+        </div>
+        <div class="header__social">
         <a href="https://web.bale.ai/chat?uid=6123878786" class="header__social-link" target="_blank" rel="noopener noreferrer" aria-label="کانال بله صنایع چوبی تهران" title="کانال بله">
           <img src="images/social/bale.png" alt="" width="40" height="40">
         </a>
         <a href="https://web.rubika.ir/#c=c0DhShV0597dde1b1d666a47cefc33b9" class="header__social-link" target="_blank" rel="noopener noreferrer" aria-label="کانال روبیکا صنایع چوبی تهران" title="کانال روبیکا">
           <img src="images/social/rubika.png" alt="" width="40" height="40">
         </a>
+        </div>
       </div>
 
       <button class="menu-toggle" id="menuToggle" aria-label="منو">

@@ -25,6 +25,9 @@
     });
   });
 
+  // لینک ورود در منو active نشود
+  const loginNavLink = document.querySelector('.nav__link--login');
+
   // هایلایت لینک فعال
   const sections = document.querySelectorAll('section[id]');
 
@@ -38,6 +41,7 @@
 
       if (scrollY >= top && scrollY < top + height) {
         navLinks.forEach(link => {
+          if (link === loginNavLink) return;
           link.classList.remove('active');
           if (link.getAttribute('href') === `#${id}`) {
             link.classList.add('active');

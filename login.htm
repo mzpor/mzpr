@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ورود | صنایع چوبی تهران</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #161616;
+            --gold: #d4af37;
+            --gold-mid: #c5a021;
+            --gold-dark: #8c6239;
+            --text: #f5f0e6;
+            --text-muted: #8a8278;
+            --border: rgba(212, 175, 55, 0.2);
+            --error-bg: rgba(192, 57, 43, 0.15);
+            --error-text: #e57373;
+            --success-bg: rgba(46, 125, 50, 0.15);
+            --success-text: #81c784;
+        }
+        html, body { height: 100%; margin: 0; }
+        body {
+            font-family: 'Vazirmatn', system-ui, sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            color: var(--text);
+        }
+        .login-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: 0 16px 48px rgba(0,0,0,.65);
+            padding: 36px 28px;
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            overflow: hidden;
+        }
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #fff8e1, #d4af37, #8c6239);
+        }
+        .logo-section { text-align: center; margin-bottom: 24px; }
+        .logo-section img { width: 72px; height: 72px; object-fit: contain; margin-bottom: 12px; }
+        .logo-section h1 { font-size: 18px; color: var(--text); margin: 0 0 6px; font-weight: 600; }
+        .logo-section p { font-size: 13px; color: var(--text-muted); margin: 0; }
+        .step { display: none; }
+        .step.active { display: block; }
+        .form-field { margin-bottom: 14px; }
+        .form-field label { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+        input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 16px;
+            background: #121212;
+            color: var(--text);
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        input[type="tel"], input[inputmode="numeric"] {
+            direction: ltr;
+            text-align: center;
+            letter-spacing: .05em;
+        }
+        input:focus { outline: none; border-color: var(--gold); }
+        .otp-row { display: flex; gap: 10px; justify-content: center; direction: ltr; }
+        .otp-box {
+            width: 52px;
+            height: 52px;
+            text-align: center;
+            font-size: 22px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #121212;
+            color: var(--text);
+        }
+        .otp-box:focus { border-color: var(--gold); outline: none; }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 8px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #8c6239);
+            color: #0a0a0a;
+        }
+        .btn-primary:disabled { opacity: .55; cursor: not-allowed; }
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            margin-top: 4px;
+        }
+        .btn-secondary:disabled { opacity: .55; cursor: not-allowed; }
+        .recognize-box {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 14px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+        .recognize-box strong { color: var(--gold); }
+        .recognize-meta { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+        .btn-link {
+            background: none;
+            border: none;
+            color: var(--gold-mid);
+            font-size: 13px;
+            cursor: pointer;
+            padding: 8px 0;
+            font-family: inherit;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .msg {
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        .msg.error { background: var(--error-bg); color: var(--error-text); }
+        .msg.success { background: var(--success-bg); color: var(--success-text); }
+        .hint { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 8px; }
+        .phone-display { text-align: center; font-size: 14px; color: var(--text-muted); margin-bottom: 12px; direction: ltr; }
+        .back-home { display: block; text-align: center; margin-top: 18px; font-size: 13px; color: var(--gold-mid); text-decoration: none; }
+        .back-home:hover { color: var(--gold); }
+        .name-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .name-row input { direction: rtl; text-align: right; letter-spacing: 0; }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="app">
+        <div class="logo-section">
+            <img src="images/logo.png" alt="صنایع چوبی تهران">
+            <h1>ورود با اپلیکیشن بله</h1>
+            <p id="stepSubtitle">شماره موبایل خود را وارد کنید</p>
+        </div>
+
+        <div id="globalMsg" class="msg" style="display:none"></div>
+
+        <div class="step active" id="stepPhone">
+            <div class="form-field">
+                <label for="phoneInput">شماره موبایل</label>
+                <input type="tel" id="phoneInput" inputmode="numeric" maxlength="11" placeholder="09123456789" autocomplete="tel">
+            </div>
+            <button type="button" class="btn btn-primary" id="btnSendOtp">دریافت کد تأیید</button>
+            <p class="hint">کد ۴ رقمی از طریق پیام‌رسان بله ارسال می‌شود</p>
+        </div>
+
+        <div class="step" id="stepVerify">
+            <p class="phone-display" id="phoneDisplay"></p>
+            <div class="otp-row" id="otpRow">
+                <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-idx="0" aria-label="رقم ۱">
+                <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-idx="1" aria-label="رقم ۲">
+                <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-idx="2" aria-label="رقم ۳">
+                <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-idx="3" aria-label="رقم ۴">
+            </div>
+            <button type="button" class="btn btn-primary" id="btnVerifyOtp" disabled>تأیید کد</button>
+            <p class="hint" id="otpTimer"></p>
+            <button type="button" class="btn-link" id="btnResend" disabled>ارسال مجدد کد</button>
+            <button type="button" class="btn-link" id="btnChangePhone">تغییر شماره</button>
+        </div>
+
+        <div class="step" id="stepComplete">
+            <p class="phone-display" id="phoneDisplay2"></p>
+            <div id="recognizeBox" class="recognize-box" style="display:none"></div>
+            <div class="name-row">
+                <div class="form-field">
+                    <label for="firstNameInput">نام</label>
+                    <input type="text" id="firstNameInput" placeholder="نام">
+                </div>
+                <div class="form-field">
+                    <label for="lastNameInput">نام خانوادگی</label>
+                    <input type="text" id="lastNameInput" placeholder="نام خانوادگی">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="btnComplete">تکمیل و ورود</button>
+            <button type="button" class="btn btn-secondary" id="btnLater" style="display:none">بعداً اطلاعاتم را ویرایش می‌کنم</button>
+            <p class="hint" id="regTimer"></p>
+        </div>
+
+        <a href="index.html" class="back-home">بازگشت به صفحه اصلی</a>
+    </div>
+
+<script>
+(function () {
+    const OTP_TTL = 300;
+    const REG_TTL = 600;
+    const RESEND_COOLDOWN = 60;
+    const MAX_ATTEMPTS = 5;
+
+    const persian = '۰۱۲۳۴۵۶۷۸۹';
+    function toEn(s) {
+        return String(s).replace(/[۰-۹]/g, d => String(persian.indexOf(d)));
+    }
+    function toFa(s) {
+        const fa = '۰۱۲۳۴۵۶۷۸۹';
+        return String(s).replace(/[0-9]/g, d => fa[parseInt(d, 10)]);
+    }
+    function normalizePhone(raw) {
+        let d = toEn(raw).replace(/\D/g, '');
+        if (d.startsWith('98') && d.length >= 12) d = '0' + d.slice(2);
+        if (d.length === 10 && d[0] === '9') d = '0' + d;
+        return /^09\d{9}$/.test(d) ? d : null;
+    }
+
+    let phone = '';
+    let registrationToken = '';
+    let knownUser = false;
+    let otpExpiresAt = 0;
+    let resendAt = 0;
+    let regExpiresAt = 0;
+    let failedAttempts = 0;
+    let loading = false;
+
+    const $ = id => document.getElementById(id);
+    const globalMsg = $('globalMsg');
+    const otpBoxes = Array.from(document.querySelectorAll('.otp-box'));
+
+    function showMsg(text, type) {
+        if (!text) { globalMsg.style.display = 'none'; return; }
+        globalMsg.textContent = text;
+        globalMsg.className = 'msg ' + (type || 'error');
+        globalMsg.style.display = 'block';
+    }
+
+    function setStep(name) {
+        document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+        const map = { phone: 'stepPhone', verify: 'stepVerify', complete: 'stepComplete' };
+        $(map[name]).classList.add('active');
+        const subtitles = {
+            phone: 'شماره موبایل خود را وارد کنید',
+            verify: 'کد ۴ رقمی ارسال‌شده به بله را وارد کنید',
+            complete: knownUser
+                ? 'اطلاعات شما بارگذاری شد — در صورت نیاز ویرایش کنید'
+                : 'نام خود را وارد کنید'
+        };
+        $('stepSubtitle').textContent = subtitles[name] || '';
+        showMsg('');
+    }
+
+    const roleLabels = { admin: 'مدیر', customer: 'مشتری' };
+
+    function fillCompleteStep(profile) {
+        const p = profile || {};
+        knownUser = !!p.known_user;
+        $('firstNameInput').value = p.first_name || '';
+        $('lastNameInput').value = p.last_name || '';
+        const box = $('recognizeBox');
+        if (knownUser) {
+            const display = (p.display_name || '').trim() || (p.first_name || '');
+            const role = roleLabels[(p.role || '').toLowerCase()] || p.role || '';
+            box.innerHTML = '✅ <strong>شما در سامانه شناسایی شدید</strong><br>'
+                + (display ? 'نام: <strong>' + display + '</strong><br>' : '')
+                + (role ? 'نقش: <strong>' + role + '</strong>' : '');
+            box.style.display = 'block';
+            $('btnLater').style.display = 'block';
+        } else {
+            box.style.display = 'none';
+            $('btnLater').style.display = 'none';
+        }
+    }
+
+    function formatCountdown(until) {
+        const sec = Math.max(0, Math.ceil((until - Date.now()) / 1000));
+        const m = Math.floor(sec / 60);
+        const s = sec % 60;
+        return toFa(String(m).padStart(2, '0')) + ':' + toFa(String(s).padStart(2, '0'));
+    }
+
+    function tickTimers() {
+        const now = Date.now();
+        if (otpExpiresAt > now) {
+            $('otpTimer').textContent = 'اعتبار کد: ' + formatCountdown(otpExpiresAt);
+        } else if (otpExpiresAt > 0) {
+            $('otpTimer').textContent = 'کد منقضی شده — ارسال مجدد کنید';
+        }
+        $('btnResend').disabled = loading || resendAt > now;
+        if (regExpiresAt > 0) {
+            if (regExpiresAt > now) {
+                $('regTimer').textContent = 'زمان تکمیل: ' + formatCountdown(regExpiresAt);
+            } else {
+                $('regTimer').textContent = 'زمان تکمیل منقضی شد. از اول شروع کنید.';
+            }
+        }
+    }
+    setInterval(tickTimers, 500);
+
+    async function apiPost(url, body) {
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'same-origin',
+            body: JSON.stringify(body)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.success === false) {
+            const err = new Error(data.message || 'خطای سرور');
+            err.retryAfter = data.retry_after;
+            throw err;
+        }
+        return data;
+    }
+
+    $('btnSendOtp').addEventListener('click', async () => {
+        if (loading) return;
+        phone = normalizePhone($('phoneInput').value);
+        if (!phone) {
+            showMsg('شماره موبایل باید ۱۱ رقم و با ۰۹ شروع شود.');
+            return;
+        }
+        loading = true;
+        $('btnSendOtp').disabled = true;
+        try {
+            const res = await apiPost('api/auth-otp-send.php', { phone });
+            const ttl = (res.data && res.data.ttl_seconds) || OTP_TTL;
+            const now = Date.now();
+            otpExpiresAt = now + ttl * 1000;
+            resendAt = now + RESEND_COOLDOWN * 1000;
+            failedAttempts = 0;
+            otpBoxes.forEach(b => { b.value = ''; });
+            $('phoneDisplay').textContent = toFa(phone);
+            $('phoneDisplay2').textContent = toFa(phone);
+            setStep('verify');
+            otpBoxes[0].focus();
+        } catch (e) {
+            showMsg(e.message);
+            if (e.retryAfter) resendAt = Date.now() + e.retryAfter * 1000;
+        } finally {
+            loading = false;
+            $('btnSendOtp').disabled = false;
+        }
+    });
+
+    function getOtpJoined() {
+        return otpBoxes.map(b => toEn(b.value).replace(/\D/g, '')).join('');
+    }
+
+    function updateVerifyBtn() {
+        $('btnVerifyOtp').disabled = loading || getOtpJoined().length !== 4;
+    }
+
+    otpBoxes.forEach((box, idx) => {
+        box.addEventListener('input', () => {
+            const raw = toEn(box.value).replace(/\D/g, '');
+            if (raw.length > 1) {
+                const fill = raw.slice(0, 4).split('');
+                otpBoxes.forEach((b, i) => { b.value = fill[i] || ''; });
+                otpBoxes[Math.min(fill.length, 3)].focus();
+            } else {
+                box.value = raw.slice(-1);
+                if (box.value && idx < 3) otpBoxes[idx + 1].focus();
+            }
+            updateVerifyBtn();
+            if (getOtpJoined().length === 4 && !loading) $('btnVerifyOtp').click();
+        });
+        box.addEventListener('keydown', e => {
+            if (e.key === 'Backspace' && !box.value && idx > 0) {
+                e.preventDefault();
+                otpBoxes[idx - 1].focus();
+            }
+        });
+    });
+
+    async function verifyOtp() {
+        if (loading) return;
+        const otp = getOtpJoined();
+        if (!/^\d{4}$/.test(otp)) {
+            showMsg('کد تأیید باید ۴ رقم باشد.');
+            return;
+        }
+        if (failedAttempts >= MAX_ATTEMPTS) {
+            showMsg('تعداد تلاش بیش از حد. کد جدید بگیرید.');
+            return;
+        }
+        if (otpExpiresAt > 0 && Date.now() > otpExpiresAt) {
+            showMsg('کد منقضی شده. ارسال مجدد کنید.');
+            return;
+        }
+        loading = true;
+        $('btnVerifyOtp').disabled = true;
+        try {
+            const res = await apiPost('api/auth-otp-verify.php', { phone, otp });
+            const d = res.data || res;
+            if (d.requires_registration) {
+                registrationToken = d.registration_token || '';
+                regExpiresAt = Date.now() + ((d.registration_ttl_seconds || REG_TTL) * 1000);
+                fillCompleteStep(d.profile || {});
+                setStep('complete');
+                if (knownUser) {
+                    $('btnComplete').focus();
+                } else {
+                    $('firstNameInput').focus();
+                }
+            } else if (d.redirect) {
+                window.location.href = d.redirect;
+            } else {
+                window.location.href = 'index.html';
+            }
+        } catch (e) {
+            if (e.message.includes('نادرست')) failedAttempts++;
+            if (e.message.includes('تلاش')) failedAttempts = MAX_ATTEMPTS;
+            if (e.message.includes('منقضی')) otpExpiresAt = Date.now();
+            showMsg(e.message);
+        } finally {
+            loading = false;
+            updateVerifyBtn();
+        }
+    }
+
+    $('btnVerifyOtp').addEventListener('click', verifyOtp);
+
+    $('btnResend').addEventListener('click', async () => {
+        if (loading || Date.now() < resendAt) return;
+        $('phoneInput').value = phone;
+        setStep('phone');
+        $('btnSendOtp').click();
+    });
+
+    $('btnChangePhone').addEventListener('click', () => {
+        phone = '';
+        registrationToken = '';
+        knownUser = false;
+        otpExpiresAt = 0;
+        regExpiresAt = 0;
+        failedAttempts = 0;
+        otpBoxes.forEach(b => { b.value = ''; });
+        setStep('phone');
+        $('phoneInput').focus();
+    });
+
+    async function completeLogin(skipProfile) {
+        if (loading) return;
+        if (regExpiresAt > 0 && Date.now() > regExpiresAt) {
+            showMsg('زمان تکمیل منقضی شد. دوباره از مرحله شماره شروع کنید.');
+            return;
+        }
+        const firstName = $('firstNameInput').value.trim();
+        const lastName = $('lastNameInput').value.trim();
+        if (!skipProfile) {
+            if (!firstName) {
+                showMsg('نام الزامی است.');
+                return;
+            }
+        }
+        loading = true;
+        $('btnComplete').disabled = true;
+        $('btnLater').disabled = true;
+        try {
+            const body = {
+                phone,
+                registration_token: registrationToken,
+                skip_profile: !!skipProfile
+            };
+            if (!skipProfile) {
+                body.first_name = firstName;
+                body.last_name = lastName;
+            }
+            const res = await apiPost('api/auth-otp-complete.php', body);
+            const d = res.data || res;
+            window.location.href = d.redirect || 'index.html';
+        } catch (e) {
+            showMsg(e.message);
+        } finally {
+            loading = false;
+            $('btnComplete').disabled = false;
+            $('btnLater').disabled = false;
+        }
+    }
+
+    $('btnComplete').addEventListener('click', () => completeLogin(false));
+    $('btnLater').addEventListener('click', () => completeLogin(true));
+
+    $('phoneInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') $('btnSendOtp').click();
+    });
+})();
+</script>
+</body>
+</html>
