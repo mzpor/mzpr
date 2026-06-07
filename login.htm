@@ -208,8 +208,13 @@
         <a href="index.html" class="back-home">بازگشت به صفحه اصلی</a>
     </div>
 
+<script src="js/auth-nav.js"></script>
 <script>
 (function () {
+    if (window.MzprAuth) {
+        window.MzprAuth.redirectIfLoggedIn('index.html');
+    }
+
     const OTP_TTL = 300;
     const REG_TTL = 600;
     const RESEND_COOLDOWN = 60;

@@ -497,8 +497,52 @@ function auth_otp_user_payload(array $user): array
 
 function auth_otp_redirect_after_login(array $user): string
 {
-    if (($user['role'] ?? '') === 'admin') {
-        return 'index.html';
-    }
     return 'index.html';
+}
+
+function auth_otp_is_logged_in(): bool
+{
+    return isset($_SESSION['user']) && is_array($_SESSION['user']) && ($_SESSION['user']['username'] ?? '') !== '';
+}
+
+/** @return null|array<string, string> */
+function auth_otp_current_user(): ?array
+{
+    if (!auth_otp_is_logged_in()) {
+        return null;
+    }
+    return $_SESSION['user'];
+}
+
+function auth_otp_session_payload(): array
+{
+    $user = auth_otp_current_user();
+    if ($user === null) {
+        return [
+            'logged_in' => false,
+            'user' => null,
+        ];
+    }
+
+    $displayName = trim(($user['name'] ?? '') . ' ' . ($user['lastname'] ?? ''));
+    if ($displayName === '') {
+        $displayName = (string) ($user['phone'] ?? $user['username'] ?? '');
+    }
+
+    return [
+        'logged_in' => true,
+        'user' => [
+            'username' => (string) ($user['username'] ?? ''),
+            'name' => $displayName,
+            'role' => (string) ($user['role'] ?? 'customer'),
+            'phone' => (string) ($user['phone'] ?? ''),
+        ],
+    ];
+}
+
+function auth_otp_logout(): void
+{
+    unset($_SESSION['user']);
+    unset($_SESSION[AUTH_OTP_SESSION_CODES]);
+    unset($_SESSION[AUTH_OTP_SESSION_REGISTRATION]);
 }

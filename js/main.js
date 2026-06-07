@@ -18,15 +18,18 @@
     menuToggle.classList.toggle('active');
   });
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuToggle.classList.remove('active');
-    });
+  nav.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link || !nav.contains(link)) return;
+    nav.classList.remove('open');
+    menuToggle.classList.remove('active');
   });
 
-  // لینک ورود در منو active نشود
-  const loginNavLink = document.querySelector('.nav__link--login');
+  const authNav = document.getElementById('authNav');
+
+  if (window.MzprAuth) {
+    window.MzprAuth.initAuthNav('authNav');
+  }
 
   // هایلایت لینک فعال
   const sections = document.querySelectorAll('section[id]');
@@ -41,7 +44,7 @@
 
       if (scrollY >= top && scrollY < top + height) {
         navLinks.forEach(link => {
-          if (link === loginNavLink) return;
+          if (authNav && authNav.contains(link)) return;
           link.classList.remove('active');
           if (link.getAttribute('href') === `#${id}`) {
             link.classList.add('active');

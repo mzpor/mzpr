@@ -289,6 +289,35 @@ ul { list-style: none; }
   color: var(--bg) !important;
 }
 
+.nav__auth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.nav__auth-name {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  white-space: nowrap;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav__link--logout {
+  color: var(--text-primary) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.nav__link--logout:hover {
+  color: var(--gold-light) !important;
+  background: rgba(212, 175, 55, 0.12) !important;
+}
+
 .header__actions {
   display: flex;
   flex-direction: column;
@@ -1151,6 +1180,23 @@ ul { list-style: none; }
 
   .nav__link--login {
     margin-top: 8px;
+    text-align: center;
+  }
+
+  .nav__auth {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+    gap: 6px;
+  }
+
+  .nav__auth-name {
+    max-width: none;
+    text-align: center;
+  }
+
+  .nav__link--logout {
+    width: 100%;
     text-align: center;
   }
 
