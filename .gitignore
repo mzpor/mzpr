@@ -3,3 +3,4 @@
 .cursor
 includes/.env
 includes/storage/
+node_modules
